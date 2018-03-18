@@ -1,1 +1,11 @@
 **/target/*
+/AsteroidsEntityFramework-ccl/Core/target/
+/AsteroidsNetbeansModules-ccl/application/target/
+/AsteroidsNetbeansModules-ccl/SilentUpdate/target/
+/AsteroidsOSGi-ccl/Player/target/
+/AsteroidsOSGi-ccl/OSGiExtender/target/
+/AsteroidsOSGi-ccl/Weapon/target/
+/AsteroidsOSGi-ccl/OSGiLibGDX/target/
+/AsteroidsOSGi-ccl/OSGiUpdater/target/
+/AsteroidsOSGi-ccl/Asteroids/target/
+/AsteroidsOSGi-ccl/CollisionDetection/target/
