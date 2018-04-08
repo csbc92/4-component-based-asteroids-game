@@ -54,6 +54,19 @@
             <artifactId>SilentUpdate</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Add these dependencies to get support for the plugin manager window -->
+        <!--
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-autoupdate-ui</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.modules</groupId>
+            <artifactId>org-netbeans-core-windows</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+        -->
     </dependencies>
 
     <build>

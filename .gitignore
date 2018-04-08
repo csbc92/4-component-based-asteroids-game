@@ -9,3 +9,15 @@
 /AsteroidsOSGi-ccl/OSGiUpdater/target/
 /AsteroidsOSGi-ccl/Asteroids/target/
 /AsteroidsOSGi-ccl/CollisionDetection/target/
+/AsteroidsServiceLoader-ccl/Core/target/
+/AsteroidsServiceLoader-ccl/Common/target/
+/AsteroidsServiceLoader-ccl/Enemy/target/
+/AsteroidsServiceLoader-ccl/Asteroids/target/
+/AsteroidsServiceLoader-ccl/Player/target/
+/AsteroidsServiceLoader-ccl/Weapon/target/
+/AsteroidsServiceLoader-ccl/CollisionDetection/target/
+/AsteroidsNetbeansModules-ccl/Core/target/
+/AsteroidsNetbeansModules-ccl/Enemy/target/
+/AsteroidsNetbeansModules-ccl/Player/target/
+/AsteroidsNetbeansModules-ccl/Weapon/target/
+/AsteroidsNetbeansModules-ccl/CollisionDetection/target/
