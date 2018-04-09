@@ -16,6 +16,7 @@ public class PlayerPlugin implements IGamePluginService {
     private Entity player;
 
     public PlayerPlugin() {
+        System.out.println("PlayerPlugin ctor..");
     }
 
     @Override
