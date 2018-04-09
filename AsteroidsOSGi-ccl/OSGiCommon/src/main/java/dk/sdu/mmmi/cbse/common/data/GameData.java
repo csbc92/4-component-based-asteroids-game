@@ -1,7 +1,6 @@
 package dk.sdu.mmmi.cbse.common.data;
 
 import dk.sdu.mmmi.cbse.common.events.Event;
-import dk.sdu.mmmi.cbse.common.services.IGameCoreInitialized;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -13,7 +12,6 @@ public class GameData {
     private int displayHeight;
     private final GameKeys keys = new GameKeys();
     private List<Event> events = new CopyOnWriteArrayList<>();
-    private List<IGameCoreInitialized> gameCoreInitializedListeners = new CopyOnWriteArrayList<>();
 
     public void addEvent(Event e) {
         events.add(e);
@@ -64,22 +62,5 @@ public class GameData {
         }
 
         return r;
-    }
-    
-    public void addGameCoreInitializedListener(IGameCoreInitialized listener) {
-        System.out.println("Added IGameCoreInitialized listener: " + listener);
-        this.gameCoreInitializedListeners.add(listener);
-    }
-    
-    public void notifyGameCoreInitializedListeners(GameData data, World world) {
-        if (this.gameCoreInitializedListeners != null) {
-            System.out.println("Notifying gameCoreInitialized listeners");
-            for (IGameCoreInitialized listener : this.gameCoreInitializedListeners) {
-                System.out.println("Notified listener: " + listener);
-                listener.gameCoreInitialized(data, world);
-            }
-        } else {
-            System.out.println("No gameCoreInitialized listeners");
-        }
     }
 }

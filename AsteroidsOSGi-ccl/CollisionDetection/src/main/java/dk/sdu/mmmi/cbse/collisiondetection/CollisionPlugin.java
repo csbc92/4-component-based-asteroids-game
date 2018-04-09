@@ -8,13 +8,11 @@ package dk.sdu.mmmi.cbse.collisiondetection;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author ccl
  */
-@ServiceProvider(service = IGamePluginService.class)
 public class CollisionPlugin implements IGamePluginService {
 
     public CollisionPlugin() {

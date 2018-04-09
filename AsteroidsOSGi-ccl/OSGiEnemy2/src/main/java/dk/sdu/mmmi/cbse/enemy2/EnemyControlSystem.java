@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.osgienemy;
+package dk.sdu.mmmi.cbse.enemy2;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;

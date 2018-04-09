@@ -6,10 +6,9 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.services.IGameCoreInitialized;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
-public class PlayerPlugin implements IGamePluginService, IGameCoreInitialized {
+public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
 
@@ -17,7 +16,6 @@ public class PlayerPlugin implements IGamePluginService, IGameCoreInitialized {
         System.out.println("Player plugin constructor...");
     }
     
-    @Override
     public void gameCoreInitialized(GameData gameData, World world) {
         System.out.println("Player plugin gameCoreInitialized() method...");
 
@@ -29,7 +27,10 @@ public class PlayerPlugin implements IGamePluginService, IGameCoreInitialized {
     @Override
     public void start(GameData gameData, World world) {
         System.out.println("Player plugin start method...");
-        gameData.addGameCoreInitializedListener(this);
+        
+        // Add entities to the world
+        player = createPlayerShip(gameData);
+        world.addEntity(player);
     }
 
     private Entity createPlayerShip(GameData gameData) {

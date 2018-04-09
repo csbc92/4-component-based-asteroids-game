@@ -14,7 +14,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.osgienemy.Enemy;
+import dk.sdu.mmmi.cbse.enemy2.Enemy;
 import dk.sdu.mmmi.cbse.playersystem.Player;
 import dk.sdu.mmmi.cbse.weapon.Bullet;
 import java.util.List;
@@ -36,7 +36,7 @@ public class CollisionDetection implements IPostEntityProcessingService {
     public void process(GameData gameData, World world) {
         
         playerCollision(gameData, world);
-        enemyCollision(gameData, world);
+        //enemyCollision(gameData, world);
         bulletCollision(gameData, world);
     }
     
@@ -55,20 +55,20 @@ public class CollisionDetection implements IPostEntityProcessingService {
         }
     }
     
-    private void enemyCollision(GameData gameData, World world) {
-        // Player and asteroids collision
-        List<Entity> enemies = world.getEntities(Enemy.class);
-        for (Entity enemy: enemies) {
-            for (Entity asteroid : world.getEntities(Asteroid.class)) {
-                boolean collision = testNormalsCollision(enemy, asteroid) && testNormalsCollision(asteroid, enemy);
-                if (collision) {
-                    //System.out.println("Collision " + asteroid.getID() + LocalDateTime.now());
-                    world.removeEntity(enemy);
-                    return;
-                }
-            }
-        }
-    }
+//    private void enemyCollision(GameData gameData, World world) {
+//        // Player and asteroids collision
+//        List<Entity> enemies = world.getEntities(Enemy.class);
+//        for (Entity enemy: enemies) {
+//            for (Entity asteroid : world.getEntities(Asteroid.class)) {
+//                boolean collision = testNormalsCollision(enemy, asteroid) && testNormalsCollision(asteroid, enemy);
+//                if (collision) {
+//                    //System.out.println("Collision " + asteroid.getID() + LocalDateTime.now());
+//                    world.removeEntity(enemy);
+//                    return;
+//                }
+//            }
+//        }
+//    }
     
     private void playerCollision(GameData gameData, World world) {
         // Player and asteroids collision
