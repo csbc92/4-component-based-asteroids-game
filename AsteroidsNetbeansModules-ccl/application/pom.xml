@@ -49,11 +49,6 @@
             <artifactId>org-openide-util</artifactId>
             <version>${netbeans.version}</version>
         </dependency>-->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>SilentUpdate</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <!-- Add these dependencies to get support for the plugin manager window -->
         <!--
         <dependency>
@@ -67,6 +62,11 @@
             <version>${netbeans.version}</version>
         </dependency>
         -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SilentUpdate</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

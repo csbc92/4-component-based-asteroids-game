@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE module_updates PUBLIC "-//NetBeans//DTD Autoupdate Catalog 2.5//EN" "http://www.netbeans.org/dtds/autoupdate-catalog-2_5.dtd">
-<module_updates timestamp="29/49/09/08/03/2018">
+<module_updates timestamp="37/44/22/10/04/2018">
 
 
-<module codenamebase="dk.sdu.mmmi.cbse.Asteroids" distribution="Asteroids-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Asteroids" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Asteroids" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+
+<module codenamebase="dk.sdu.mmmi.cbse.Asteroids" distribution="Asteroids-1.0-SNAPSHOT.nbm" downloadsize="8211" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Asteroids" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Asteroids" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
 
 <module codenamebase="org.openide.util" distribution="org-openide-util-RELEASE82.nbm" downloadsize="164990" homepage="http://www.netbeans.org/" license="14E6055" moduleauthor="" needsrestart="false" releasedate="2016/09/30" targetcluster="platform">
@@ -18,12 +20,14 @@
     
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.CollisionDetection" distribution="CollisionDetection-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.CollisionDetection" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, dk.sdu.mmmi.cbse.Player &gt; 1.0, dk.sdu.mmmi.cbse.Asteroids &gt; 1.0, dk.sdu.mmmi.cbse.Enemy &gt; 1.0, dk.sdu.mmmi.cbse.Weapon &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="CollisionDetection" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+<module codenamebase="dk.sdu.mmmi.cbse.CollisionDetection" distribution="CollisionDetection-1.0-SNAPSHOT.nbm" downloadsize="7308" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.CollisionDetection" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, dk.sdu.mmmi.cbse.Player &gt; 1.0, dk.sdu.mmmi.cbse.Asteroids &gt; 1.0, dk.sdu.mmmi.cbse.Enemy &gt; 1.0, dk.sdu.mmmi.cbse.Weapon &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="CollisionDetection" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.Common" distribution="Common-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Common" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1" OpenIDE-Module-Name="Common" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+<module codenamebase="dk.sdu.mmmi.cbse.Common" distribution="Common-1.0-SNAPSHOT.nbm" downloadsize="15550" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Common" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1" OpenIDE-Module-Name="Common" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
 
 <module autoload="true" codenamebase="org.netbeans.api.annotations.common" distribution="org-netbeans-api-annotations-common-RELEASE82.nbm" downloadsize="86526" homepage="http://www.netbeans.org/" license="14E6055" moduleauthor="" needsrestart="false" releasedate="2016/09/30" targetcluster="platform">
@@ -31,12 +35,14 @@
     
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.Core" distribution="Core-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Core" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, org.openide.modules &gt; 7.48.1, org.openide.util.lookup &gt; 8.33.1, org.openide.util.ui &gt; 9.6.1, dk.sdu.mmmi.cbse.Common &gt; 1.0" OpenIDE-Module-Name="Core" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+<module codenamebase="dk.sdu.mmmi.cbse.Core" distribution="Core-1.0-SNAPSHOT.nbm" downloadsize="8903267" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Core" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, org.openide.modules &gt; 7.48.1, org.openide.util.lookup &gt; 8.33.1, org.openide.util.ui &gt; 9.6.1, dk.sdu.mmmi.cbse.Common &gt; 1.0" OpenIDE-Module-Name="Core" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Enemy" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Enemy" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+<module codenamebase="dk.sdu.mmmi.cbse.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="6822" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Enemy" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Enemy" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
 
 <module codenamebase="org.openide.filesystems" distribution="org-openide-filesystems-RELEASE82.nbm" downloadsize="222399" homepage="http://www.netbeans.org/" license="14E6055" moduleauthor="" needsrestart="false" releasedate="2016/09/30" targetcluster="platform">
@@ -59,9 +65,12 @@
     
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.Player" distribution="Player-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Player" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Player" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+
+<module codenamebase="dk.sdu.mmmi.cbse.Player" distribution="Player-1.0-SNAPSHOT.nbm" downloadsize="7749" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Player" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Player" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
+
 
 <module codenamebase="org.netbeans.core.startup" distribution="org-netbeans-core-startup-RELEASE82.nbm" downloadsize="421380" homepage="http://www.netbeans.org/" license="14E6055" moduleauthor="" needsrestart="false" releasedate="2016/09/30" targetcluster="platform">
     <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.core.startup/1" OpenIDE-Module-Display-Category="Infrastructure" OpenIDE-Module-Implementation-Version="201609300101" OpenIDE-Module-Java-Dependencies="Java &gt; 1.7" OpenIDE-Module-Long-Description="This module provides the central additional functionality to Bootstrap to locate and enable the right modules." OpenIDE-Module-Module-Dependencies="org.netbeans.bootstrap/1 &gt; 2.61, org.openide.filesystems &gt; 9.0, org.openide.modules &gt; 7.41, org.openide.util.ui &gt; 9.3, org.openide.util &gt; 9.3, org.openide.util.lookup &gt; 8.1, org.netbeans.libs.asm &gt; 5.0, org.netbeans.core.startup.base = 1" OpenIDE-Module-Name="Startup" OpenIDE-Module-Provides="org.openide.modules.InstalledFileLocator" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Loads and enables modules." OpenIDE-Module-Specification-Version="1.62.1.1"/>
@@ -73,16 +82,16 @@
     
 </module>
 
-
 <module codenamebase="org.openide.util.ui" distribution="org-openide-util-ui-RELEASE82.nbm" downloadsize="134495" homepage="http://www.netbeans.org/" license="14E6055" moduleauthor="" needsrestart="false" releasedate="2016/09/30" targetcluster="platform">
     <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.openide.util.ui" OpenIDE-Module-Display-Category="Infrastructure" OpenIDE-Module-Implementation-Version="201609300101" OpenIDE-Module-Java-Dependencies="Java &gt; 1.7" OpenIDE-Module-Long-Description="Various helper methods and basic concept definitions related to thick client desktop environment including actions and image handling." OpenIDE-Module-Module-Dependencies="org.openide.util &gt; 9.3, org.openide.util.lookup &gt; 8.14" OpenIDE-Module-Name="Utilities API" OpenIDE-Module-Short-Description="Desktop Utilities API." OpenIDE-Module-Specification-Version="9.6.1"/>
     
 </module>
 
-
-<module codenamebase="dk.sdu.mmmi.cbse.Weapon" distribution="Weapon-1.0-SNAPSHOT.nbm" downloadsize="0" license="B2517D31" needsrestart="false" releasedate="2018/03/08" targetcluster="asteroidsnetbeansplatform">
-    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Weapon" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180308" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, dk.sdu.mmmi.cbse.Player &gt; 1.0, dk.sdu.mmmi.cbse.Enemy &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Weapon" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+<module codenamebase="dk.sdu.mmmi.cbse.Weapon" distribution="Weapon-1.0-SNAPSHOT.nbm" downloadsize="7181" license="B2517D31" needsrestart="false" releasedate="2018/04/11" targetcluster="asteroidsnetbeansplatform">
+    <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Weapon" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20180410" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.27.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, org.openide.util.lookup &gt; 8.33.1" OpenIDE-Module-Name="Weapon" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
+    
 </module>
+
 
 <license name="B2517D31">Copyright  2018
 -----------------------------------------------------

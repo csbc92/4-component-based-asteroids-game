@@ -4,12 +4,17 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.LEFT;
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.RIGHT;
+import static dk.sdu.mmmi.cbse.common.data.GameKeys.SPACE;
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.UP;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.services.IWeapon;
+import java.util.Optional;
 import org.openide.util.lookup.ServiceProvider;
+import org.openide.util.Lookup;
+import org.openide.util.Lookup.Result;
 
 /**
  *
@@ -19,6 +24,9 @@ import org.openide.util.lookup.ServiceProvider;
 @ServiceProvider(service = IEntityProcessingService.class)
 public class PlayerControlSystem implements IEntityProcessingService {
 
+    private Lookup lookup = Lookup.getDefault(); // TODO: Consider using dependency injection somehow instead..
+    private IWeapon weapon;
+    
     @Override
     public void process(GameData gameData, World world) {
 
@@ -30,11 +38,37 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(UP));
             
+            boolean shoot = gameData.getKeys().isDown(SPACE);
+            if (shoot) {
+                IWeapon weaponImpl = this.locateWeapon();
+                if (weaponImpl != null) {
+                    weaponImpl.spawnBullet(player, gameData, world);
+                }
+            }
+            
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
 
             updateShape(player);
         }
+    }
+    
+    private IWeapon locateWeapon() {
+        if (this.weapon == null) {
+            Result<IWeapon> result = lookup.lookupResult(IWeapon.class);
+            Optional optional = result.allInstances().stream().findFirst();
+            
+            if (optional.isPresent()) {
+                IWeapon weapon = (IWeapon)optional.get();
+                System.out.println("IWeapon implementation found: " + optional);
+                this.weapon = weapon;
+            } else {
+                System.out.println("No IWeapon implementation found.");
+            }
+            
+        }
+        
+        return weapon;
     }
 
     private void updateShape(Entity entity) {
