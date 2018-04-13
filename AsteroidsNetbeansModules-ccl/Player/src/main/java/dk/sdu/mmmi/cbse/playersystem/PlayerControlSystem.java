@@ -26,7 +26,6 @@ import org.openide.util.Lookup.Result;
 public class PlayerControlSystem implements IEntityProcessingService {
 
     private Lookup lookup = Lookup.getDefault(); // TODO: Consider using dependency injection somehow instead..
-    private IWeapon weapon;
     
     @Override
     public void process(GameData gameData, World world) {
@@ -55,20 +54,17 @@ public class PlayerControlSystem implements IEntityProcessingService {
     }
     
     private IWeapon locateWeapon() {
-        if (this.weapon == null) {
-            Result<IWeapon> result = lookup.lookupResult(IWeapon.class);
-            Optional optional = result.allInstances().stream().findFirst();
-            
-            if (optional.isPresent()) {
-                IWeapon weapon = (IWeapon)optional.get();
-                System.out.println("IWeapon implementation found: " + optional);
-                this.weapon = weapon;
-            } else {
-                System.out.println("No IWeapon implementation found.");
-            }
-            
-        }
         
+        Lookup.Result<IWeapon> result = lookup.lookupResult(IWeapon.class);
+        Optional optional = result.allInstances().stream().findFirst();
+        IWeapon weapon = null;
+
+        if (optional.isPresent()) {
+            weapon = (IWeapon)optional.get();
+        } else {
+            System.out.println("No IWeapon implementation found.");
+        }
+            
         return weapon;
     }
 
