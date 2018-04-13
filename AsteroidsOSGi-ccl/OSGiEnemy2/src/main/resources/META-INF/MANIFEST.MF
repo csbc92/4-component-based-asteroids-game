@@ -1,2 +1,2 @@
-Bundle-SymbolicName: OSGiLaser
+Bundle-SymbolicName: OSGiEnemy2
 Bundle-ActivationPolicy: lazy
