@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- *
- * @author jcs
- */
 public class World {
 
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
@@ -24,8 +20,13 @@ public class World {
     }
 
     public void removeEntity(Entity entity) {
-        entityMap.remove(entity.getID());
-        //entityMap.put(entity.getID(), null);
+        Entity result = entityMap.remove(entity.getID());
+        
+        if (result != null) {
+            System.out.println("Entity: " + result.getID() + " removed from World.");
+        } else {
+            System.out.println("Entity: " + result.getID() + " does not exist in World. Could not remove.");
+        }
     }
     
     public Collection<Entity> getEntities() {

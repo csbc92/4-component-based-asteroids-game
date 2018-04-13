@@ -23,3 +23,7 @@
 /AsteroidsNetbeansModules-ccl/CollisionDetection/target/
 /AsteroidsNetbeansModules-ccl/Asteroids/target/
 /AsteroidsOSGi-ccl/OSGiEnemy2/target/
+/AsteroidsNetbeansModules-ccl/CommonEnemy/target/
+/AsteroidsNetbeansModules-ccl/CommonPlayer/target/
+/AsteroidsNetbeansModules-ccl/CommonAsteroid/target/
+/AsteroidsNetbeansModules-ccl/CommonBullet/target/

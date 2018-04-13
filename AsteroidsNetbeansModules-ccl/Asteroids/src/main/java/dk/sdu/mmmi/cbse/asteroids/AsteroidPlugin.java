@@ -5,16 +5,17 @@
  */
 package dk.sdu.mmmi.cbse.asteroids;
 
+import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonasteroid.Asteroid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.openide.util.lookup.ServiceProvider;
-import org.openide.util.lookup.ServiceProviders;
 
 /**
  *
@@ -36,8 +37,9 @@ public class AsteroidPlugin implements IGamePluginService {
     }
 
     @Override
-    public void stop(GameData gameData, World world) {
-        for (Asteroid asteroid : asteroids) {
+    public void stop(GameData gameData, World world) {    
+        List<Entity> asteroidsInGame = world.getEntities(Asteroid.class);
+        for (Entity asteroid : asteroidsInGame) {
             world.removeEntity(asteroid);
         }
     }

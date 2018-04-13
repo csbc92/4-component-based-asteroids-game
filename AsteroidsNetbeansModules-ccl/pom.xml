@@ -60,6 +60,10 @@
         <module>application</module>
         <module>Core</module>
         <module>Common</module>
+        <module>CommonAsteroid</module>
+        <module>CommonEnemy</module>
+        <module>CommonPlayer</module>
+        <module>CommonBullet</module>
         <module>Player</module>
         <module>Enemy</module>
         <module>Asteroids</module>

@@ -11,6 +11,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IWeapon;
+import dk.sdu.mmmi.cbse.commonplayer.Player;
 import java.util.Optional;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.Lookup;

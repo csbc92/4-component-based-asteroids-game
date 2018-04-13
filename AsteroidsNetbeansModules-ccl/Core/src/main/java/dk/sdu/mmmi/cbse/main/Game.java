@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -15,9 +17,15 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
@@ -30,11 +38,12 @@ public class Game implements ApplicationListener {
 
     private final GameData gameData = new GameData();
     private World world = new World();
-    private List<IGamePluginService> gamePlugins = new ArrayList<>();
+    private List<IGamePluginService> gamePlugins = new CopyOnWriteArrayList<>();
     private Lookup.Result<IGamePluginService> result;
     
     private SpriteBatch sBatch;
     private TextureRegion backgroundTexture;
+    private Map<String, Texture> textureMap = new HashMap<>();
 
     @Override
     public void create() {
@@ -48,8 +57,7 @@ public class Game implements ApplicationListener {
 
         shapeRenderer = new ShapeRenderer();
         sBatch = new SpriteBatch(600);
-        backgroundTexture = new TextureRegion(new Texture("/home/ccl/Downloads/tumblr_inline_n258q4r8c01qhwjx8.png"), 0, 0, 500, 400);
-        //backgroundTexture = new TextureRegion(new Texture("/home/ccl/Downloads/25352259_10155514660336865_369656534154241243_o_0.jpg"), 0, 0, 500, 400);
+        backgroundTexture = new TextureRegion(getTexture(this.getClass(), "images/background.png"), 0, 0, 500, 400);
         
         result = lookup.lookupResult(IGamePluginService.class);
         result.addLookupListener(lookupListener);
@@ -178,4 +186,24 @@ public class Game implements ApplicationListener {
             }
         }
     };
+    
+    private Texture getTexture(Class objectClass, String path) {
+        
+        Texture texture = textureMap.get(path);
+        
+        if (texture == null) {
+            try (InputStream inputStream = objectClass.getClassLoader().getResourceAsStream(path)) {
+                Gdx2DPixmap gmp = new Gdx2DPixmap(inputStream, Gdx2DPixmap.GDX2D_FORMAT_RGBA8888);
+                Pixmap pix = new Pixmap(gmp);
+                texture = new Texture(pix);
+                textureMap.put(path, texture);
+                System.out.println("Added a new Texture from ClassLoader: " + objectClass.getClassLoader().toString() + " with path: " + path);
+                pix.dispose();
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+        
+        return texture;
+    }
 }

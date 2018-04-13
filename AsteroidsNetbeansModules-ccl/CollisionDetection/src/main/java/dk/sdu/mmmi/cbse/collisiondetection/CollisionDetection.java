@@ -5,7 +5,6 @@
  */
 package dk.sdu.mmmi.cbse.collisiondetection;
 
-import dk.sdu.mmmi.cbse.asteroids.Asteroid;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.Point;
@@ -14,9 +13,10 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.enemy.Enemy;
-import dk.sdu.mmmi.cbse.playersystem.Player;
-import dk.sdu.mmmi.cbse.weapon.Bullet;
+import dk.sdu.mmmi.cbse.commonasteroid.Asteroid;
+import dk.sdu.mmmi.cbse.commonbullet.Bullet;
+import dk.sdu.mmmi.cbse.commonenemy.Enemy;
+import dk.sdu.mmmi.cbse.commonplayer.Player;
 import java.util.List;
 import java.util.Random;
 import org.openide.util.lookup.ServiceProvider;
@@ -35,7 +35,7 @@ public class CollisionDetection implements IPostEntityProcessingService {
     public void process(GameData gameData, World world) {
         
         playerCollision(gameData, world);
-        enemyCollision(gameData, world);
+        //enemyCollision(gameData, world);
         bulletCollision(gameData, world);
     }
     
