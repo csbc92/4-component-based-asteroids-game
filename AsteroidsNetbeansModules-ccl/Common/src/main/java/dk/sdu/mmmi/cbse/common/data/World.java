@@ -20,12 +20,8 @@ public class World {
     }
 
     public void removeEntity(Entity entity) {
-        Entity result = entityMap.remove(entity.getID());
-        
-        if (result != null) {
-            System.out.println("Entity: " + result.getID() + " removed from World.");
-        } else {
-            System.out.println("Entity: " + result.getID() + " does not exist in World. Could not remove.");
+        if (entity != null) {
+            entityMap.remove(entity.getID());
         }
     }
     
