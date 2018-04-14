@@ -1,3 +1,2 @@
 Bundle-SymbolicName: OSGiEnemy
 Bundle-ActivationPolicy: lazy
-

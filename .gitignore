@@ -27,3 +27,12 @@
 /AsteroidsNetbeansModules-ccl/CommonPlayer/target/
 /AsteroidsNetbeansModules-ccl/CommonAsteroid/target/
 /AsteroidsNetbeansModules-ccl/CommonBullet/target/
+/AsteroidsOSGi-ccl/OSGiPlayer/target/
+/AsteroidsOSGi-ccl/OSGiCollisionDetection/target/
+/AsteroidsOSGi-ccl/OSGiWeapon/target/
+/AsteroidsOSGi-ccl/OSGiAsteroids/target/
+/AsteroidsOSGi-ccl/OSGiCommonPlayer/target/
+/AsteroidsOSGi-ccl/OSGiCommonPlayer (copy)/target/
+/AsteroidsOSGi-ccl/OSGiCommonEnemy/target/
+/AsteroidsOSGi-ccl/OSGiCommonAsteroid/target/
+/AsteroidsOSGi-ccl/OSGiCommonBullet/target/

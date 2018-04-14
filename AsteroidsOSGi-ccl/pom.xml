@@ -68,13 +68,17 @@
         <module>OSGiExtender</module>
         <module>OSGiLibGDX</module>
         <module>OSGiCommon</module>
-        <module>OSGiUpdater</module>
+        <module>OSGiCommonAsteroid</module>
+        <module>OSGiCommonBullet</module>
+        <module>OSGiCommonEnemy</module>
+        <module>OSGiCommonPlayer</module>
         <module>OSGiCore</module>
-        <module>Player</module>
-        <module>Weapon</module>
-        <module>Asteroids</module>
-        <module>CollisionDetection</module>
-        <module>OSGiEnemy2</module>
+        <module>OSGiEnemy</module>
+        <module>OSGiPlayer</module>
+        <module>OSGiAsteroids</module>
+        <module>OSGiWeapon</module>
+        <module>OSGiCollisionDetection</module>
+        <module>OSGiUpdater</module>
     </modules>
 
     <properties>

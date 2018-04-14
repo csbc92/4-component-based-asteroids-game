@@ -6,7 +6,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -17,12 +19,18 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.osgi.framework.BundleContext;
 
 public class Game implements ApplicationListener {
 
+    private final int WINDOW_WIDTH = 500;
+    private final int WINDOW_HEIGHT = 400;
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
     private static final GameData gameData = new GameData();
@@ -30,10 +38,10 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
-    private static BundleContext bundleContext;
 
     private SpriteBatch sBatch;
     private TextureRegion backgroundTexture;
+    private Map<String, Texture> textureMap = new HashMap<>();
     
     public Game() {
         System.out.println("Game class constructor... " + this);
@@ -44,10 +52,13 @@ public class Game implements ApplicationListener {
 
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "Asteroids";
-        cfg.width = 500;
-        cfg.height = 400;
+        cfg.width = WINDOW_WIDTH;
+        cfg.height = WINDOW_HEIGHT;
         cfg.useGL30 = false;
         cfg.resizable = false;
+        
+        gameData.setDisplayWidth(WINDOW_WIDTH);
+        gameData.setDisplayHeight(WINDOW_HEIGHT);
 
         new LwjglApplication(this, cfg);
     }
@@ -55,15 +66,13 @@ public class Game implements ApplicationListener {
     @Override
     public void create() {
         System.out.println("Game class create() method... " + this);
-        gameData.setDisplayWidth(Gdx.graphics.getWidth());
-        gameData.setDisplayHeight(Gdx.graphics.getHeight());
         
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();        
         
         sBatch = new SpriteBatch(600);
-        backgroundTexture = new TextureRegion(new Texture("/home/ccl/Downloads/tumblr_inline_n258q4r8c01qhwjx8.png"), 0, 0, 500, 400);
+        backgroundTexture = new TextureRegion(getTexture(this.getClass(), "images/background.png"), 0, 0, 500, 400);
 
         sr = new ShapeRenderer();
 
@@ -77,9 +86,11 @@ public class Game implements ApplicationListener {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
-        sBatch.begin();
-        sBatch.draw(backgroundTexture, 0, 0);
-        sBatch.end();
+        if (backgroundTexture != null) {
+            sBatch.begin();
+            sBatch.draw(backgroundTexture, 0, 0);
+            sBatch.end();
+        }
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         gameData.getKeys().update();
@@ -169,5 +180,25 @@ public class Game implements ApplicationListener {
         System.out.println("Removed GamePluginService " + plugin + " " + this);
         this.gamePluginList.remove(plugin);
         plugin.stop(gameData, world);
+    }
+    
+        private Texture getTexture(Class objectClass, String path) {
+        
+        Texture texture = textureMap.get(path);
+        
+        if (texture == null) {
+            try (InputStream inputStream = objectClass.getClassLoader().getResourceAsStream(path)) {
+                Gdx2DPixmap gmp = new Gdx2DPixmap(inputStream, Gdx2DPixmap.GDX2D_FORMAT_RGBA8888);
+                Pixmap pix = new Pixmap(gmp);
+                texture = new Texture(pix);
+                textureMap.put(path, texture);
+                System.out.println("Added a new Texture from ClassLoader: " + objectClass.getClassLoader().toString() + " with path: " + path);
+                pix.dispose();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        return texture;
     }
 }
