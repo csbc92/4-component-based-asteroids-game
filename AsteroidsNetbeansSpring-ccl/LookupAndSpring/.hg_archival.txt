@@ -1,0 +1,5 @@
+repo: e2848c9011dc254c47bd8d559390e0a357120c1a
+node: fdd7f8e3c9e477048a1028ea3b6d90b61e69dc36
+branch: default
+latesttag: release68_base
+latesttagdistance: 49

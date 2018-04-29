@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apidesign</groupId>
+    <artifactId>spring-lookup</artifactId>
+    <packaging>jar</packaging>
+    <version>1.2</version>
+    <parent>
+        <groupId>org.apidesign</groupId>
+        <artifactId>all-lookup</artifactId>
+        <version>2.0</version>
+    </parent>    
+    <name>Bridge between Spring and Lookup</name>
+    <url>http://wiki.apidesign.org/wiki/LookupAndSpring</url>
+    <ciManagement>
+        <system>hudson</system>
+        <url>http://hudson.apidesign.org/hudson/job/lookup</url>
+    </ciManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.1</version>
+                <configuration>
+                    <detectLinks>true</detectLinks>
+                    <links>
+                        <link>http://bits.netbeans.org/8.0/javadoc/org-openide-util-lookup/</link>
+                        <link>http://static.springsource.org/spring/docs/2.5.6/api/</link>
+                    </links>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
+            <version>RELEASE80</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.modules</groupId>
+            <artifactId>org-netbeans-insane</artifactId>
+            <version>RELEASE68</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>2.5.6</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+    <description>
+        Provides mapping between Lookup library,
+        so it is directly usable with Spring Framework's
+        dependency injection.
+    </description>    
+</project>
