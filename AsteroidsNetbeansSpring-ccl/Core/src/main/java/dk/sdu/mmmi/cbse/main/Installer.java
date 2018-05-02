@@ -5,23 +5,18 @@
  */
 package dk.sdu.mmmi.cbse.main;
 
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import org.apidesign.spring.SpringAndLookup;
 import org.openide.modules.ModuleInstall;
+import org.openide.util.Lookup;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Installer extends ModuleInstall {
 
     @Override
     public void restored() {
-        LwjglApplicationConfiguration cfg =
-			new LwjglApplicationConfiguration();
-		cfg.title = "Asteroids";
-		cfg.width = 500; //500
-		cfg.height = 400; //400
-		cfg.useGL30 = false;
-		//cfg.resizable = false;
-		
-		new LwjglApplication(new Game(), cfg);
+        ApplicationContext servicesContext = SpringAndLookup.create(Lookup.getDefault(), "java.extensions");
+        ApplicationContext mergedContext = new ClassPathXmlApplicationContext(new String[] { "application-context.xml" }, Game.class, servicesContext);
     }
 
 }

@@ -2,6 +2,8 @@ package dk.sdu.mmmi.cbse.main;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -17,27 +19,23 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-import org.apidesign.spring.SpringAndLookup;
 import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Game implements ApplicationListener {
     
+    private final int WINDOW_WIDTH = 500;
+    private final int WINDOW_HEIGHT = 400;
     private final Lookup lookup = Lookup.getDefault();
     private ApplicationContext mergedContext;
     private static OrthographicCamera cam;
@@ -51,18 +49,28 @@ public class Game implements ApplicationListener {
     private SpriteBatch sBatch;
     private TextureRegion backgroundTexture;
     private Map<String, Texture> textureMap = new HashMap<>();
-    
-    
-    private IGamePluginService asteroidService;
 
     public Game() {
+        System.out.println("Game ctor.. " + this);
+        init();
+    }
+    
+    private void init() {
+
+        LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
+        cfg.title = "Asteroids";
+        cfg.width = WINDOW_WIDTH;
+        cfg.height = WINDOW_HEIGHT;
+        cfg.useGL30 = false;
+        
+        gameData.setDisplayWidth(WINDOW_WIDTH);
+        gameData.setDisplayHeight(WINDOW_HEIGHT);
+
+        new LwjglApplication(this, cfg);
     }
     
     @Override
     public void create() {
-
-        ApplicationContext servicesContext = SpringAndLookup.create(Lookup.getDefault(), "java.extensions");
-        mergedContext = new ClassPathXmlApplicationContext(new String[] { "application-context.xml" }, Game.class, servicesContext);
         
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -83,12 +91,6 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(
                 new GameInputProcessor(gameData)
         );
-
-        // Lookup all Game Plugins using ServiceLoader
-        for (IGamePluginService plugin : result.allInstances()) {
-            plugin.start(gameData, world);
-            gamePlugins.add(plugin);
-        }
     }
 
     @Override
@@ -113,11 +115,8 @@ public class Game implements ApplicationListener {
         // 3. Draw the game state
         draw();
         
-        if (mergedContext.getBean("asteroidPlugin") != null) {
-            IGamePluginService plugin = (IGamePluginService)mergedContext.getBean("asteroidPlugin", IGamePluginService.class);
-            System.out.println(mergedContext.getBeansOfType(IGamePluginService.class));
-        }
-        
+        // For debugging: Print the current game plugins in the game
+        //System.out.println(this.gamePlugins);
 
         gameData.getKeys().update();
     }
@@ -175,20 +174,17 @@ public class Game implements ApplicationListener {
     public void dispose() {
     }
     
-    public void setAsteroidPlugin(IGamePluginService service) {
-        this.asteroidService = service;
-    }
-    
-    public IGamePluginService getAsteroidPlugin() {
-        return this.asteroidService;
-    }
-    
+    //This method is called automatically by Spring with "Autowiring"
     public void setPlugins(List<IGamePluginService> plugins) {
-        System.out.println("Plugin set method: " + plugins);
-    }
-    
-    public void getPlugins() {
-        System.out.println("Plugins get method");
+        if (this.gamePlugins == null) {
+            this.gamePlugins = new CopyOnWriteArrayList<>();
+        }
+        System.out.println("Plugins set method: " + plugins);
+        for (IGamePluginService plugin : plugins) {
+            this.gamePlugins.add(plugin);
+            System.out.println("Injected: " + plugin + " into " + this);
+            plugin.start(gameData, world);
+        }
     }
     
     private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {

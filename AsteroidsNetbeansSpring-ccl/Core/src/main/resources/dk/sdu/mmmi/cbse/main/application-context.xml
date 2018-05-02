@@ -9,11 +9,7 @@
        http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-
-    <bean id="asteroidPlugin" class="dk.sdu.mmmi.cbse.asteroids.AsteroidPlugin" />
-
-    <bean id="game" class="dk.sdu.mmmi.cbse.main.Game" autowire="autodetect" scope="singleton">
-        <property name="asteroidPlugin" ref="asteroidPlugin" />
-    </bean>
+    <!-- The autowire="autodetect" mode will automatically search for injection methods in the Game-class -->
+    <bean id="game" class="dk.sdu.mmmi.cbse.main.Game" autowire="autodetect" />
         
 </beans>

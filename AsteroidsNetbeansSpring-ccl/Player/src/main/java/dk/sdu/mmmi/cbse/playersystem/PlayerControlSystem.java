@@ -26,7 +26,6 @@ import org.openide.util.Lookup.Result;
 public class PlayerControlSystem implements IEntityProcessingService {
 
     private Lookup lookup = Lookup.getDefault(); // TODO: Consider using dependency injection somehow instead..
-    private IWeapon weapon = null;
     
     @Override
     public void process(GameData gameData, World world) {
@@ -41,9 +40,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
             
             boolean shoot = gameData.getKeys().isDown(SPACE);
             if (shoot) {
-                //IWeapon weaponImpl = this.locateWeapon();
-                if (weapon != null) {
-                    weapon.spawnBullet(player, gameData, world);
+                IWeapon weaponImpl = this.locateWeapon();
+                if (weaponImpl != null) {
+                    weaponImpl.spawnBullet(player, gameData, world);
                 }
             }
             
@@ -52,10 +51,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             updateShape(player);
         }
-    }
-    
-    public void setWeapon(IWeapon weapon) {
-        this.weapon = weapon;
     }
     
     private IWeapon locateWeapon() {
