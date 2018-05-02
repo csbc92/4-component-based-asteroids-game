@@ -59,8 +59,10 @@ public class AsteroidPlugin implements IGamePluginService {
             float acceleration = 100000000; // Accelerate like a fucking rocket
             float maxSpeed = 50;
             float rotationSpeed = 5;
-            float x = random.nextFloat() * gameData.getDisplayWidth();
-            float y = random.nextFloat() * gameData.getDisplayHeight();
+            //float x = random.nextFloat() * gameData.getDisplayWidth();
+            //float y = random.nextFloat() * gameData.getDisplayHeight();
+            float x = getRandomBetween(0, gameData.getDisplayWidth()*1/3, gameData.getDisplayWidth()*2/3, gameData.getDisplayWidth());
+            float y = getRandomBetween(0, gameData.getDisplayHeight()*1/3, gameData.getDisplayHeight()*2/3, gameData.getDisplayHeight());
             // Set a random radians/direction/orientation for this asteroid
             float radians = random.nextFloat() * 3.1415f;
             
@@ -71,6 +73,24 @@ public class AsteroidPlugin implements IGamePluginService {
         }
         
         return asteroids;
+    }
+    
+    private float getRandomBetween(float firstMin, float firstMax, float secondMin, float secondMax) {
+        Random random = new Random();
+        float result = 0f;
+        
+        if (random.nextBoolean()) {
+            result = getRandomBetween(firstMin, firstMax);
+        } else {
+            result = getRandomBetween(secondMin, secondMax);
+        }
+        
+        return result;
+    }
+    
+    private float getRandomBetween(float min, float max) {
+        Random random = new Random();
+        return min + random.nextFloat() * (max - min);
     }
     
 }
