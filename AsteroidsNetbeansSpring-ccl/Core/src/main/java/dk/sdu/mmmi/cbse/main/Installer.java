@@ -18,5 +18,4 @@ public class Installer extends ModuleInstall {
         ApplicationContext servicesContext = SpringAndLookup.create(Lookup.getDefault(), "java.extensions");
         ApplicationContext mergedContext = new ClassPathXmlApplicationContext(new String[] { "application-context.xml" }, Game.class, servicesContext);
     }
-
 }
