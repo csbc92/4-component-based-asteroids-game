@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dk.sdu.mmmi.cbse;
 
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
@@ -47,8 +42,8 @@ public class IntegrationTest extends NbTestCase {
     public void setUp() throws Exception {
         System.out.println("Before test - run setUp()");
         // MAKE A COPY OF ORIGIN UPDATE XML FILE
-        System.out.println("Copy " + UPDATES_FILE + " to " + UPDATES_FILE_BACKUP);
-        copy(get(UPDATES_FILE), get(UPDATES_FILE_BACKUP), REPLACE_EXISTING);
+        //System.out.println("Copy " + UPDATES_FILE + " to " + UPDATES_FILE_BACKUP);
+        //copy(get(UPDATES_FILE), get(UPDATES_FILE_BACKUP), REPLACE_EXISTING);
         
         // COPY THE UPDATE XML FILE FOR TESTING INTO THE UPDATE CENTER
         // CONTAINS ONLY THE CORE MODULE
@@ -65,7 +60,7 @@ public class IntegrationTest extends NbTestCase {
     }
     
     public void testIntegration() throws InterruptedException, IOException {
-
+        
         // SETUP
         List<IEntityProcessingService> processors = new CopyOnWriteArrayList<>();
         List<IGamePluginService> plugins = new CopyOnWriteArrayList<>();
@@ -109,4 +104,46 @@ public class IntegrationTest extends NbTestCase {
         plugins.addAll(Lookup.getDefault().lookupAll(IGamePluginService.class));
     }
     
+        
+    /**
+    public void testGUIEnemyShip() throws IOException, InterruptedException {
+        
+        Enumeration<URL> e = IntegrationTest.class.getClassLoader().getResources("");
+        while (e.hasMoreElements())
+        {
+            System.out.println("ClassLoader Resource: " + e.nextElement());
+        }
+        System.out.println("Class Resource: " + Test.class.getResource("/"));
+        
+        System.out.println("testGUIEnemyShip");
+        // SETUP
+        List<IEntityProcessingService> processors = new CopyOnWriteArrayList<>();
+        List<IGamePluginService> plugins = new CopyOnWriteArrayList<>();
+
+        // https://www.youtube.com/watch?v=LUcFP02EOuA
+        System.out.println("Loading enemy ship pattern to match");
+        Pattern ENEMY_SHIP_PATTERN = new Pattern("/home/ccl/git/komponentbaseret-labs/AsteroidsNetbeansModules-ccl/application/src/test/resources/enemy-ship.png");
+        ENEMY_SHIP_PATTERN.similar(0.9f);
+        System.out.println("Enemy ship pattern loaded");
+        
+        /**
+        Screen screen = new Screen();
+        
+        try {
+            // TEST: Load Enemy via UC
+            System.out.println("Copy " + ADD_ENEMY_UPDATES_FILE + " to " + UPDATES_FILE);
+            copy(get(ADD_ENEMY_UPDATES_FILE), get(UPDATES_FILE), REPLACE_EXISTING);
+
+            waitForUpdate(processors, plugins, 10000);
+            
+            System.out.println("Waiting for the enemy ship to show on screen");
+            screen.wait(ENEMY_SHIP_PATTERN, 2);
+            assertTrue(true); // The enemy ship pattern was found.
+            
+        } catch (FindFailed ex) {
+            Exceptions.printStackTrace(ex);
+        }
+        
+        assertTrue(false);
+    }*/
 }
