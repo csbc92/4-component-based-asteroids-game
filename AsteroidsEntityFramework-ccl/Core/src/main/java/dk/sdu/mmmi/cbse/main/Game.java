@@ -47,8 +47,7 @@ public class Game
 
         shapeRenderer = new ShapeRenderer();
         sBatch = new SpriteBatch(600);
-        backgroundTexture = new TextureRegion(new Texture("/home/ccl/Downloads/tumblr_inline_n258q4r8c01qhwjx8.png"), 0, 0, 500, 400);
-        //backgroundTexture = new TextureRegion(new Texture("/home/ccl/Downloads/25352259_10155514660336865_369656534154241243_o_0.jpg"), 0, 0, 500, 400);
+        backgroundTexture = new TextureRegion(new Texture("/home/ccl/Pictures/Asteroids/background.png"), 0, 0, 500, 400);
         
         
         Gdx.input.setInputProcessor(
